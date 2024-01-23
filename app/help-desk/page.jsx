@@ -45,9 +45,9 @@ const Page = () => {
 
   const helpDeskHCreateHandle = async (e) => {
     e.preventDefault();
-
+    const uniqueId = v4();
     const newHelpDeskItem = {
-      id: v4(),
+      id: uniqueId,
       category: catg,
       description: desc,
       updatedAt: { seconds: Date.now() / 1000 },
@@ -56,7 +56,7 @@ const Page = () => {
 
     try {
       // Add the new help desk item to Firestore
-      await setDoc(doc(db, "helpdesk", v4()), newHelpDeskItem);
+      await setDoc(doc(db, "helpdesk", uniqueId), newHelpDeskItem);
 
       // Update the local state with the new help desk item
       setSellersHelpDeskList((prevList) => [...prevList, newHelpDeskItem]);
@@ -174,7 +174,7 @@ const Page = () => {
                 sellersHelpDeskList
                   .filter((item) => !item.isSolved)
                   .map((item) => (
-                    <ul className={`${cls.listContainer} ${cls.dataList}`}>
+                    <ul className={`${cls.listContainer} ${cls.dataList}`} key={item.id}>
                       <li>{item.id}</li>
                       <li>{item.category}</li>
                       <li>{item.description}</li>
