@@ -1,13 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { addHyphensAndLowercase, convertToTitleCase } from "../lib/utils";
 import cls from "./SingleProductUpload.module.css";
 import { subcategories } from "../lib/product-subcategories";
+import { db } from "../firebase/firebaseconfig";
+import { doc, setDoc } from "firebase/firestore";
+import {v4} from "uuid"
 
 const fieldNames = [
   "title",
   "category",
   "subcategory",
-  "img",
   "mrp",
   "description",
 ];
@@ -23,13 +25,12 @@ const acceptedNumberFields = ["mrp"];
 
 const SingleProductUpload = ({ closeModal }) => {
   const categories = Object.keys(subcategories);
-
-  const imgInput = useRef(null);
+  const userid="12345" //replace with auth
   const [formData, setFormData] = useState({
+    userid: userid,
     title: "",
     category: "",
     subcategory: "",
-    img: [],
     mrp: "",
     description: "",
   });
@@ -37,25 +38,17 @@ const SingleProductUpload = ({ closeModal }) => {
   const handleChange = (e) => {
     const { name, value, type } = e.target;
 
-    if (type === "file") {
-      // Handling file input
-      const files = Array.from(e.target.files).slice(0, 5); // Limit to max 5 files
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: files,
-      }));
-    } else {
-      // Handling other input fields
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    // Handling other input fields
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let isFormDataValid = true;
+
     for (const field in formData) {
       const value = formData[field];
 
@@ -73,29 +66,20 @@ const SingleProductUpload = ({ closeModal }) => {
     }
 
     if (isFormDataValid) {
-      closeModal(); // Close the modal after successful submission
+      // Upload form data to Firebase
+      await setDoc(doc(db, "products" , v4()), {
+        formData,
+      });
+      console.log("Document written with ID: " + v4());
+
+      // closeModal(); // Close the modal after successful submission
     } else {
       alert("Please enter valid values");
     }
   };
 
-  const handleFileDelete = (index) => {
-    const updatedFiles = formData.img.filter((_, i) => i !== index);
-    setFormData((prevData) => ({
-      ...prevData,
-      img: updatedFiles,
-    }));
-  };
-
-  const handleBtnClick = (e) => {
-    e.preventDefault();
-    imgInput.current.click();
-  };
-
   const generateLabel = (field) => {
     switch (field) {
-      case "img":
-        return "Upload Images (Max 5)";
       case "mrp":
         return "Maximum Retail Price";
       default:
@@ -109,21 +93,13 @@ const SingleProductUpload = ({ closeModal }) => {
         {fieldNames.map((field) => (
           <div
             key={field}
-            className={`${field === "img" ? cls.imgDiv : cls.inputDiv}`}
+            className={`${cls.inputDiv}`}
           >
             <div className={cls.imgDivHeader}>
               <label htmlFor={field}>
                 {generateLabel(field)}
                 {field === "description" && " (Optional)"}
               </label>
-              {field === "img" && (
-                <button
-                  className={`button-primary ${cls.imgButton}`}
-                  onClick={handleBtnClick}
-                >
-                  Select
-                </button>
-              )}
             </div>
 
             {field === "category" ? (
@@ -141,40 +117,6 @@ const SingleProductUpload = ({ closeModal }) => {
                   </option>
                 ))}
               </select>
-            ) : field === "img" ? (
-              <div>
-                <input
-                  type="file"
-                  id={field}
-                  name={field}
-                  accept="image/*"
-                  multiple
-                  ref={imgInput}
-                  className={cls.imgInput}
-                  onChange={handleChange}
-                  required
-                />
-
-                {formData.img.length > 0 && (
-                  <div className={cls.uploadedPictures}>
-                    {formData.img.map((file, index) => (
-                      <div key={index} className={cls.uploadedPicture}>
-                        <img
-                          src={URL.createObjectURL(file)}
-                          alt={`Uploaded ${index + 1}`}
-                        />
-                        <button
-                          type="button"
-                          className={cls.deleteButton}
-                          onClick={() => handleFileDelete(index)}
-                        >
-                          &times;
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
             ) : field === "subcategory" ? (
               <select
                 id={field}
@@ -185,13 +127,11 @@ const SingleProductUpload = ({ closeModal }) => {
               >
                 <option value="">Select subcategory</option>
                 {formData.category &&
-                  subcategories[formData.category].map((cat) => {
-                    return (
-                      <option key={cat} value={addHyphensAndLowercase(cat)}>
-                        {cat}
-                      </option>
-                    );
-                  })}
+                  subcategories[formData.category].map((cat) => (
+                    <option key={cat} value={addHyphensAndLowercase(cat)}>
+                      {cat}
+                    </option>
+                  ))}
               </select>
             ) : field === "description" ? (
               <textarea

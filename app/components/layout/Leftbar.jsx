@@ -10,10 +10,6 @@ const Leftbar = () => {
           <img src="/products.png" className={cls.icon} alt=""/>
           Products
         </a>
-        <a href="/orders" >
-          <img src="/notes.png" className={cls.icon} alt=""/>
-          Orders
-        </a>
         <a href="/help-desk">
         <img src="/help.png" className={cls.icon} alt=""/>
           Help desk
