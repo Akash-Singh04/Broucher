@@ -1,13 +1,6 @@
 import React from "react";
 import cls from "./Leftbar.module.css";
-import { IoLogOutOutline } from "react-icons/io5";
-import { CgNotes } from "react-icons/cg";
-import { CgProfile } from "react-icons/cg";
-import { IoMdHelp } from "react-icons/io";
-import { CgCalculator } from "react-icons/cg";
-import { AiOutlineSend } from "react-icons/ai";
-import { FaWallet } from "react-icons/fa";
-import { CgBulb } from "react-icons/cg";
+
 const Leftbar = () => {
 
   return (

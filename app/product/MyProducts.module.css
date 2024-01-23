@@ -1,0 +1,231 @@
+.checkbox {
+  width: 15px;
+  height: 15px;
+  display: grid;
+  place-content: center;
+}
+.inputContainer select {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+}
+/* Add CSS styles for Filters and SortingOptions components */
+.filters_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 20px;
+}
+.sorting_options_container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; 
+  margin-top: 20px;
+}
+/* Style the empty space between filters and sorting options */
+.empty_space {
+  width: 20%; /* Adjust as needed */
+}
+
+/* Style the container that holds both filters and sorting options */
+.filters_and_sorting_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* Add other styles as needed */
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 0.1rem;
+  width: 20rem;
+  background-color: white;
+  margin-top: 1rem;
+}
+.tabContainer {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  border-bottom: 2px solid #b6b6b6;
+  gap: 2rem;
+  padding: 0.5rem 2rem;
+  padding-bottom: 0;
+}
+
+.tabContainer li {
+  cursor: pointer;
+  color: rgb(0, 0, 0, 0.8);
+  padding: 0.5rem;
+}
+.tabContainer li.active {
+  border-bottom: 4px solid var(--blue);
+  font-weight: 700;
+}
+
+.table {
+  width: 100%;
+  padding: 1rem;
+}
+
+.table thead {
+  text-align-last: left;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.table tbody td,
+.table thead td {
+  padding: 0.7rem 1rem;
+  max-width: 10rem;
+}
+.positioning{
+  display: relative;
+  transform: translate(66%, -313%);
+}
+.editProductForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 1rem;
+  row-gap: 2rem;
+  column-gap: 3rem;
+  position: relative;
+}
+
+.editProductForm div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.editProductForm input {
+  border-radius: 4px;
+  border: 1.5px solid black;
+  padding: 4px 8px;
+}
+
+.editProductForm input:focus {
+  border: none;
+}
+
+.editProductForm p {
+  grid-column: span 2;
+  font-weight: bold;
+  font-size: large;
+}
+
+.editProductForm select {
+  background: white;
+  font-size: small;
+  border-radius: 4px;
+  padding: 4px 8px;
+  border: 1.5px solid black;
+  width: 100%;
+}
+
+.images {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.productDetails {
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  background-color: aliceblue;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.productDetails p {
+  margin-top: 0.5rem;
+}
+
+.imgContainer {
+  display: grid;
+  gap: 1rem;
+}
+
+.imgContainer strong {
+  font-size: large;
+}
+
+.img {
+  width: 100px;
+  align-self: center;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.editProductForm .uploadedPicture img {
+  width: 80px;
+  align-self: center;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.editProductForm .uploadedPicture {
+  position: relative;
+  width: fit-content;
+}
+
+.deleteButton {
+  font-family: inherit;
+  border: 1px solid black;
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 2px;
+}
+
+.deleteButton:hover {
+  background-color: rgb(197, 196, 196);
+}
+
+.editProductForm .uploadedPictures {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.editProductForm .imgInput {
+  display: none;
+}
+
+.editProductForm .imgSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.editProductForm .confirmationButtons {
+  position: absolute;
+  bottom: 0;
+  width: 13rem;
+}
+
+.editProductForm div:nth-child(11) {
+  grid-column: span 2;
+  height: 10rem;
+}
+
+.editProductForm > div:nth-child(11) > div:nth-child(2) {
+  position: relative;
+  height: 5rem;
+  top: 2rem;
+}

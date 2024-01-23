@@ -1,0 +1,138 @@
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.3);
+  padding-bottom: 0.5rem;
+}
+.modalHeader h3 {
+  text-align: center;
+  width: 100%;
+}
+.crossIcon {
+  font-size: 1.7rem;
+  cursor: pointer;
+  color: gray;
+}
+.uploadForm {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.uploadFormRight {
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.uploadFormRight p {
+  font-weight: 600;
+}
+.uploadFormRight span {
+  font-size: 0.7rem;
+  color: rgb(0, 0, 0, 0.7);
+}
+.uploadFormRight a {
+  text-decoration: none;
+}
+.excelIcon {
+  font-size: 2rem;
+  color: white;
+  padding: 1rem;
+  background-color: rgb(0, 0, 0, 0.8);
+  border-radius: 50%;
+}
+.uploadIcon {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+.uploadBtn {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid rgb(0, 0, 0, 0.5);
+}
+.uploadFormRight h4 {
+  color: #0790ad;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+.uploadForm1 {
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+}
+.uploadSec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.customInputLabel {
+  border: 1px dotted gray;
+  padding: 0.6rem 1rem;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.uploadSec button {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.1rem;
+  border-radius: 0.1rem;
+}
+.uploadSec button.enabled {
+  background-color: #0790ad;
+  border: 1px solid #0790ad;
+  color: white;
+}
+
+.uploadSec button.disabled {
+  background-color: transparent;
+  border: 1px solid gray;
+  cursor: unset;
+}
+.fileContainer {
+  margin: 1rem 0;
+  min-width: 13rem;
+}
+.selectedFile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 0.1rem;
+  padding: 0.7rem;
+  position: relative;
+}
+.selectedFile li {
+  list-style: none;
+  margin: 0 1rem;
+}
+.fileIcon {
+  color: green;
+}
+.cancelFileIcon {
+  position: absolute;
+  right: 0.2rem;
+  font-size: 1.3rem !important;
+}
+.container{
+  width: fit-content;
+  background: white;
+  align-self: center;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(128, 128, 128, 0.352);
+  filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+}
