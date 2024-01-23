@@ -4,6 +4,7 @@ import cls from "./SingleProductUpload.module.css";
 import { subcategories } from "../lib/product-subcategories";
 import { db } from "../firebase/firebaseconfig";
 import { doc, setDoc } from "firebase/firestore";
+import {v4} from "uuid"
 
 const fieldNames = [
   "title",
@@ -24,8 +25,9 @@ const acceptedNumberFields = ["mrp"];
 
 const SingleProductUpload = ({ closeModal }) => {
   const categories = Object.keys(subcategories);
-
+  const userid="12345" //replace with auth
   const [formData, setFormData] = useState({
+    userid: userid,
     title: "",
     category: "",
     subcategory: "",
@@ -65,10 +67,10 @@ const SingleProductUpload = ({ closeModal }) => {
 
     if (isFormDataValid) {
       // Upload form data to Firebase
-      await setDoc(doc(db, "products", formData["title"]), {
+      await setDoc(doc(db, "products" , v4()), {
         formData,
       });
-      console.log("Document written with ID: ", formData["title"]);
+      console.log("Document written with ID: " + v4());
 
       // closeModal(); // Close the modal after successful submission
     } else {
