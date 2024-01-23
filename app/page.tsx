@@ -11,6 +11,7 @@ const LandingPage = () => {
         <nav className={cls.nav}>
           {/* Add navigation links as needed */}
           <Link href="/login ">Login</Link>
+          <Link href="/signup ">SignUp</Link>
         </nav>
       </header>
       <section className={cls.hero}>
