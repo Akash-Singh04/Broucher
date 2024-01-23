@@ -1,0 +1,26 @@
+.midLeft {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.midLeft button {
+  border: 1px solid rgba(128, 128, 128, 0.496);
+  padding: 0.5rem 2rem;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 0.1rem;
+  display: flex;
+  justify-content: center;
+}
+.midLeft button.active {
+  background-color: #0790ad;
+  color: white;
+  border: 1px solid #0790ad;
+}
+
+@media (max-width: 1200px) {
+  .mid {
+    margin-bottom: 10rem;
+  }
+}

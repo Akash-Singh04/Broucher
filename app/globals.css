@@ -1,33 +1,193 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --blue: #0a9dba;
+  --light-blue: #49c0d8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+}
+.buttonGroupRemittance {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  align-items: center;
+}
+.button-primary {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 100px;
+  background-color: var(--blue);
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  cursor: pointer;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.button-primary:hover {
+  background-color: var(--light-blue);
+  box-shadow: 0 0 8px var(--light-blue);
+  transform: scale(1.1);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.button-primary:active {
+  background-color: var(--blue);
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+.button-primary:disabled {
+  background-color: grey;
+  border-color: grey;
+}
+
+.button-primary:disabled:hover {
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.button-secondary {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 100px;
+  background-color: white;
+  color: var(--blue);
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button-secondary:hover {
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.button-secondary:active {
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+.noResults {
+  font-weight: 800;
+  font-size: larger;
+  text-align: center;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+#ProductsContainer{
+  margin-top: 0px;
+}
+
+.sorting{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.header p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 0rem;
+}
+
+.container {
+  background-color: #fcfcfc;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  height: 100%;
+}
+
+.tabContainer {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  border-bottom: 2px solid #b6b6b6;
+  padding: 1rem 1rem 0;
+  justify-content: space-evenly;
+}
+
+.tabContainer li {
+  cursor: pointer;
+  color: rgb(0, 0, 0, 0.8);
+  padding: 0.5rem;
+}
+.tabContainer li.active {
+  border-bottom: 4px solid var(--blue);
+  font-weight: 700;
+}
+
+.table {
+  width: 100%;
+  padding: 1.5rem 4rem;
+}
+
+.table thead {
+  text-align-last: left;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-y: auto;
+}
+
+.table tbody td {
+  text-align: left;
+  padding: 0.5rem 0rem;
+  color: black;
+}
+
+.table tbody tr:nth-child(1) td {
+  padding-top: 1.5rem;
+}
+
+.modalTitle {
+  font-weight: bolder;
+  font-size: x-large;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.modalSubheading {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: large;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+  display: grid;
+  place-content: center;
+  margin-right: 0.5rem;
 }

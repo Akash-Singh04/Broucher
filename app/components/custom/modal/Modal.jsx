@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { Cross2Icon } from '@radix-ui/react-icons';
 import cls from './Modal.module.css';
 
 const Modal = ({ title, children, open, closeModal }) => {
@@ -13,7 +12,7 @@ const Modal = ({ title, children, open, closeModal }) => {
           {children}
           <Dialog.Close asChild>
             <button className={cls.IconButton} aria-label="Close">
-              <Cross2Icon />
+              Close
             </button>
           </Dialog.Close>
         </Dialog.Content>
