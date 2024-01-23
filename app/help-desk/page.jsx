@@ -4,7 +4,7 @@ import cls from "./HelpDesk.module.css";
 import { Box, Modal } from "@mui/material";
 import Layout from "../components/layout/Layout";
 import {db} from "../firebase/firebaseconfig"
-import { collection, doc, getDocs , setDoc } from "firebase/firestore";
+import { collection, doc, getDocs , setDoc, updateDoc } from "firebase/firestore";
 import { v4 } from "uuid";
 
 const style = {
@@ -97,7 +97,7 @@ const Page = () => {
   const handleReOpenIssue = async (itemId) => {
     try {
       // Update the "isSolved" field in Firestore
-      await setDoc(doc(db, "helpdesk", itemId), { isSolved: false });
+      await updateDoc(doc(db, "helpdesk", itemId), { isSolved: false });
 
       // Update the local state
       setSellersHelpDeskList((prevList) =>
@@ -115,7 +115,7 @@ const Page = () => {
   const handleResolveIssue = async (itemId) => {
     try {
       // Update the "isSolved" field in Firestore
-      await setDoc(doc(db, "helpdesk", itemId), { isSolved: true });
+      await updateDoc(doc(db, "helpdesk", itemId), { isSolved: true });
 
       // Update the local state
       setSellersHelpDeskList((prevList) =>
