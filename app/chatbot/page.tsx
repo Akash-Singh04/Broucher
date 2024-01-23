@@ -29,7 +29,7 @@ const Chatbot = () => {
         { message: msg, type: "user" },
       ]);
       const response = await fetch(
-        `https://4e31-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}&type=${flag}`,
+        `https://79e1-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}&type=${flag}`,
         {
           method: "GET",
           headers: new Headers({
@@ -62,7 +62,7 @@ const Chatbot = () => {
       // setBotresponse([...botresponse,data.message]);   data.message
       setBotresponse((prevBotresponse) => [
         ...prevBotresponse,
-        { message:  countflag?data.message:"Query accepted", type: "bot" },
+        { message:  data.message?data.message:"Query accepted", type: "bot" },
       ]);
       setCountflag(!countflag);
       console.log(botresponse);
