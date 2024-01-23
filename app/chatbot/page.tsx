@@ -5,46 +5,29 @@ import Layout from "../components/layout/Layout";
 import "./style.css";
 import { set } from "firebase/database";
 
-const dummyData = [
-  {
-    message: "Hello, I am Alexa. How can I help you?",
-    type: "bot",
-  },
-  {
-    message: "I want to know about the products",
-    type: "user",
-  },
-  {
-    message: "Which kind of products?",
-    type: "bot",
-  },
-  {
-    message: "Summer vibes",
-    type: "user",
-  },
-  {
-    message: "Sure, Here is the link to them",
-    type: "bot",
-  }];
-
 const Chatbot = () => {
   const [msg, setMsg] = useState("");
   const [botresponse,setBotresponse] = useState([{message: "Hello, I am Alexa. How can I help you?",
   type: "bot",}]);
+  const [countflag,setCountflag] = useState(true);
+  const [firstresp , setFirstresp] = useState(true);
   useEffect(() => {
     console.log(botresponse);
     // Add any other logic that depends on botresponse here
   }, [botresponse]);
   const handleClick = async () => {
-    
-    
+    let flag = countflag ? 0: 1
+    if (firstresp) {
+      flag=0;
+      setFirstresp(false);
+    }
     try {
       setBotresponse((prevBotresponse) => [
         ...prevBotresponse,
         { message: msg, type: "user" },
       ]);
       const response = await fetch(
-        `https://89ae-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}`,
+        `https://12bc-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}&type=${flag}`,
         {
           method: "GET",
           headers: new Headers({
@@ -56,12 +39,14 @@ const Chatbot = () => {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      // console.log(data);
+      console.log("Recieved:"+data);
+      
       // setBotresponse([...botresponse,data.message]);   data.message
       setBotresponse((prevBotresponse) => [
         ...prevBotresponse,
-        { message:  data.message, type: "bot" },
+        { message:  countflag?data.message:"Query accepted", type: "bot" },
       ]);
+      setCountflag(!countflag);
       console.log(botresponse);
     } catch (error) {
       console.error("Fetch error:", error);
