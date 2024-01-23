@@ -1,8 +1,10 @@
 "use client";
 import { useState,useEffect } from "react";
 import Layout from "../components/layout/Layout";
-// import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase/firebaseconfig";
 import "./style.css";
+import { v4 } from "uuid";
 import { set } from "firebase/database";
 
 const Chatbot = () => {
@@ -27,7 +29,7 @@ const Chatbot = () => {
         { message: msg, type: "user" },
       ]);
       const response = await fetch(
-        `https://12bc-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}&type=${flag}`,
+        `https://79e1-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}&type=${flag}`,
         {
           method: "GET",
           headers: new Headers({
@@ -39,12 +41,28 @@ const Chatbot = () => {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
+      if (!countflag){
+      console.log("The category is:"+data.Category);
+      console.log("The description is:"+data.Description);
+      const uniqueid = v4();
+      if (data.Category && data.Description){
+        await setDoc(doc(db, "helpdesk", uniqueid), {
+          id:uniqueid,
+          category: data.Category,
+          description: data.Description,
+          updatedAt: {seconds: Date.now() / 1000},
+          isSolved: false,
+        });
+ 
+        console.log("Data written");   
+      }
+      }
       console.log("Recieved:"+data);
       
       // setBotresponse([...botresponse,data.message]);   data.message
       setBotresponse((prevBotresponse) => [
         ...prevBotresponse,
-        { message:  countflag?data.message:"Query accepted", type: "bot" },
+        { message:  data.message?data.message:"Query accepted", type: "bot" },
       ]);
       setCountflag(!countflag);
       console.log(botresponse);
