@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { addHyphensAndLowercase, convertToTitleCase } from "../lib/utils";
 import cls from "./SingleProductUpload.module.css";
 import { subcategories } from "../lib/product-subcategories";
-
+import {db} from "../firebase/firebaseconfig"
 const fieldNames = [
   "title",
   "category",
