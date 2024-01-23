@@ -29,29 +29,6 @@ const MyProducts = () => {
 
   return (
     <>
-      <div className={cls.filters_and_sorting_container}>
-        {/* Filters Component */}
-        <Filters
-          categories={categories}
-          filters={filters}
-          handleCategoryChange={handleCategoryChange}
-          handleSubcategoryChange={handleSubcategoryChange}
-          handleSearch={handleSearch}
-        />
-
-        {/* Empty space */}
-        <div className={cls.empty_space} />
-
-        {/* SortingOptions Component */}
-        <SortingOptions
-          sortOptions={sortOptions}
-          handleSortByChange={handleSortByChange}
-          handleSortOrderChange={handleSortOrderChange}
-        />
-      </div>
-      <div className={cls.positioning}>
-        <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
-      </div>
       {!loading ? (
         <div className={`container`} id="ProductsContainer">
           <TabGroup activeTab={activeTab} setActiveTab={setActiveTab} />
