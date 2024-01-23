@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  gap: 2rem;
+}
+.container h1 {
+  color: red;
+}
+.container a {
+  padding: 0.7rem 1rem;
+  background-color: #0790ad;
+  color: aliceblue;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 0.1rem;
+  transition: 0.5s ease;
+}
+
+.container a:hover {
+  transform: scale(0.95);
+}

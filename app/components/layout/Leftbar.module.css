@@ -1,0 +1,63 @@
+.container {
+  flex: 0.2;
+  height: calc(100vh - 3rem);
+  overflow-y: scroll;
+  background-color: rgb(243, 243, 243);
+  position: sticky;
+  top: 3rem;
+  align-self: flex-start;
+}
+/* ::-webkit-scrollbar {
+  width: 0.3rem;
+}
+::-webkit-scrollbar-track {
+  background: #e7e7e7;
+}
+::-webkit-scrollbar-thumb {
+  background: gray;
+} */
+
+.listContainer a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+.logoutDiv {
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 0;
+  cursor: pointer;
+}
+.logoutDiv p {
+  color: rgba(0, 0, 0, 0.6);
+}
+.listContainer a:hover,
+.logoutDiv:hover {
+  background-color: #ebebeb;
+}
+.listContainer a.active {
+  color: black;
+  font-weight: bold;
+}
+
+.icon {
+  padding: 0.5rem 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 1200px) {
+  .container {
+    flex: 0.3;
+  }
+}

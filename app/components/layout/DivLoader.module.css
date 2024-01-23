@@ -1,0 +1,12 @@
+.divLoading {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-bottom: 0.2rem solid aliceblue;
+  border-radius: 50%;
+  animation: divLoad 0.8s linear infinite;
+}
+@keyframes divLoad {
+  to {
+    transform: rotateZ(-360deg);
+  }
+}

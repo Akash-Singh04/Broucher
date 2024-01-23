@@ -1,0 +1,19 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading {
+  height: 10rem;
+  width: 10rem;
+  border-bottom: 0.5rem solid gray;
+  border-radius: 50%;
+  animation: load 0.8s linear infinite;
+}
+@keyframes load {
+  to {
+    transform: rotateZ(-360deg);
+  }
+}

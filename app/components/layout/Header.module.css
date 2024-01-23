@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2f3748;
+  height: 3rem;
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+.left a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.left img {
+  height: 2.8rem;
+  margin-left: 1.5rem;
+}
+.left h3 {
+  letter-spacing: 0.05rem;
+  color: #fff;
+}
+.right {
+  display: flex;
+  align-items: center;
+}
+.right p {
+  color: white;
+  margin-right: 2rem;
+}
+.right p:nth-child(2) {
+  cursor: pointer;
+}
+
+.hamburger {
+  font-size: 1.2rem;
+  color: white;
+}

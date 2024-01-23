@@ -1,0 +1,31 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  z-index: 15;
+}
+
+.loader::after {
+  content: "";
+  width: 100px;
+  height: 70px;
+  border: 15px solid #dddddd;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: loading 0.75s ease-out infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}

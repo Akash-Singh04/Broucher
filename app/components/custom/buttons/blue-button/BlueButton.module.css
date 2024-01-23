@@ -1,0 +1,39 @@
+.buttonBlue {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  height: 40px;
+  border: none;
+  padding: 0px 20px;
+  background-color: var(--blue);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 3px;
+  transition-duration: 0.3s;
+}
+
+.buttonBlue svg {
+  width: 17px;
+  position: relative;
+  right: 0;
+  transition-duration: 0.3s;
+  fill: white;
+}
+
+.buttonBlue:hover {
+  color: transparent;
+}
+
+.buttonBlue:hover svg {
+  right: 38%;
+  transition-duration: 0.3s;
+}
+
+.buttonBlue:active {
+  transform: translate(3px, 3px);
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 0px var(--blue);
+}

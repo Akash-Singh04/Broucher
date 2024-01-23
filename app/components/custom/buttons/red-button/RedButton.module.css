@@ -1,0 +1,42 @@
+.buttonRed {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  height: 40px;
+  border: none;
+  padding: 0px 20px;
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 3px;
+  transition-duration: 0.3s;
+}
+
+.buttonRed svg {
+  width: 13px;
+  position: relative;
+  right: 0;
+  fill: white;
+  transition-duration: 0.3s;
+}
+
+.buttonRed:hover {
+  color: transparent;
+}
+
+.buttonRed:hover svg {
+  right: 40%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: 0.3s;
+}
+
+.buttonRed:active {
+  transform: translate(3px, 3px);
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 0px red;
+}
