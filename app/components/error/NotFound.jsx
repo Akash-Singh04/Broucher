@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+
 import cls from './NotFound.module.css'
 import Layout from "../layout/Layout";
 
@@ -8,7 +8,6 @@ const NotFound = () => {
     <Layout>
       <div className={cls.container}>
       <h1>PAGE NOT FOUND</h1>
-      <Link to="/">Go to Home page</Link>
       </div>
     </Layout>
   );
