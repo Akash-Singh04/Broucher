@@ -102,6 +102,11 @@ const Chatbot = () => {
               placeholder=""
               value={msg}
               onChange={(e) => setMsg(e.target.value)}
+              onKeyDown={e=>{
+                if (e.key === 'Enter') {
+                  handleClick();
+                }
+              }}
             />
             <button className="send-btn" onClick={handleClick}>
               Send
