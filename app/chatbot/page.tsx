@@ -29,7 +29,7 @@ const Chatbot = () => {
         { message: msg, type: "user" },
       ]);
       const response = await fetch(
-        `https://79e1-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}&type=${flag}`,
+        `https://9300-34-83-197-30.ngrok-free.app?user_id=hjhjhj&str=${msg}&type=${flag}`,
         {
           method: "GET",
           headers: new Headers({
@@ -40,8 +40,9 @@ const Chatbot = () => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      setMsg("");
       const data = await response.json();
-      if (!countflag){
+      if (!data.message){
       console.log("The category is:"+data.Category);
       console.log("The description is:"+data.Description);
       const uniqueid = v4();
@@ -99,6 +100,7 @@ const Chatbot = () => {
               type="text"
               className="input"
               placeholder=""
+              value={msg}
               onChange={(e) => setMsg(e.target.value)}
             />
             <button className="send-btn" onClick={handleClick}>
