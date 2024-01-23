@@ -14,41 +14,21 @@ const Leftbar = () => {
     <div className={cls.container}>
       <div className={cls.listContainer}>
         <a href="/product">
-          <CgNotes className={cls.icon} />
+          <img src="/products.png" className={cls.icon} alt=""/>
           Products
         </a>
         <a href="/orders" >
-          <CgNotes className={cls.icon} style={{ color: "#0790ad" }} />
+          <img src="/notes.png" className={cls.icon} alt=""/>
           Orders
         </a>
-        <a href="/calculator" >
-          <CgCalculator className={cls.icon} style={{ color: "#0790ad" }} />
-          Calculator
-        </a>
-        <a href="/wallet" >
-          <FaWallet className={cls.icon} />
-          Wallet
-        </a>
-        <a href="/remittance" >
-          <AiOutlineSend className={cls.icon} />
-          Remittance
-        </a>
         <a href="/help-desk">
-          <IoMdHelp className={cls.icon} />
+        <img src="/help.png" className={cls.icon} alt=""/>
           Help desk
         </a>
-        <a href="/faq" >
-          <CgBulb className={cls.icon} />
-          FAQ
+        <a href="/chatbot" >
+        <img src="/bot.png" className={cls.icon} alt=""/>
+          Chatbot
         </a>
-        <a href="/profile" >
-          <CgProfile className={cls.icon} />
-          Profile
-        </a>
-        <div className={cls.logoutDiv}>
-          <IoLogOutOutline className={cls.icon} style={{ color: "red" }} />
-          <p>Logout</p>
-        </div>
       </div>
     </div>
   );

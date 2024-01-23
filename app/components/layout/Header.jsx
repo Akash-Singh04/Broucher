@@ -8,7 +8,7 @@ const Header = () => {
       <div className={cls.left}>
       </div>
       <div className={cls.right}>
-      <p>Hello!</p>
+      <p>Hack-O-Rama</p>
       </div>
     </div>
   );
