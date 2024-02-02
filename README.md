@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Broucher: Your AI-powered Project Management Chatbot
 
-## Getting Started
+Broucher is a chatbot built with **Next.js**, **Firebase**, and **Python** that understands natural language, providing product information, website guidance, and project management features.
 
-First, run the development server:
+**Tech Stack:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Frontend:** Next.js
+* **Backend:** Firebase Firestore, Cloud Functions
+* **Chatbot Engine:** Python (rasa or similar)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Features:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Natural Language Product Inquiry:** Ask questions about products and receive detailed descriptions, specifications, and answers.
+* **Website Task Guidance:** Get step-by-step instructions for completing tasks on your website.
+* **Project Management:** Add and manage projects, raise issues, and track progress directly through the chatbot.
+* **Web UI:** View all added projects and raised issues in a clean web interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Setting Up the Project:**
 
-## Learn More
+1. Clone the repository: `git clone git@github.com:your-username/broucher.git`
+2. Install dependencies: `npm install` or `yarn install`
+3. Set up your Firebase project and configure necessary environment variables.
+4. Run the development server: `npm run dev` or `yarn dev`
+5. Train the chatbot engine according to chosen framework's instructions.
+6. Setup the chatbot engine on your server and set the API link in the frontend. 
 
-To learn more about Next.js, take a look at the following resources:
+**Contributing:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We welcome contributions! Please follow these guidelines:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* Fork the repository and create a new branch for your changes.
+* Write clear and concise commit messages.
+* Submit pull requests for review and discussion.
+* Adhere to the project's style guide and coding standards.
 
-## Deploy on Vercel
+**License:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
