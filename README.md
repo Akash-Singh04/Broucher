@@ -6,7 +6,7 @@ Broucher is a chatbot built with **Next.js**, **Firebase**, and **Python** that 
 
 * **Frontend:** Next.js
 * **Backend:** Firebase Firestore, Cloud Functions
-* **Chatbot Engine:** Python (rasa or similar)
+* **Chatbot Engine:** Python (look into the "notebook" folder for more info)
 
 **Features:**
 
